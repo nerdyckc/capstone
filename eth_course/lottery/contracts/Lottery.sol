@@ -10,25 +10,25 @@ contract Lottery {
 
     function enter() public payable {
         // msg is a global variable
-        require(msg.value > .01 ether);
+        require(msg.value > .01 ether, "fuck you piece of shit");
 
         players.push(msg.sender);
     }
 
     function random() private view returns (uint) {
         // hashing algorithm which returns a hash, the hash is turned into unsigned integer
-        return uint(keccak256(block.difficulty, now, players));
+        return uint(keccak256(abi.encodePacked(block.difficulty,players, now)));
     }
     
     function pickWinner() public restricted {
         uint index = random() % players.length;
         // transfer entire balance in contract to selected player
-        players[index].transfer(this.balance);
+        players[index].transfer(address(this).balance);
         players = new address[](0); // dynamic array with initial size of zero
     }
     
     modifier restricted() {
-        require(msg.sender == manager);
+        require(msg.sender == manager, "don't touch!");
         _;      // run rest of the code in target function
     }
 

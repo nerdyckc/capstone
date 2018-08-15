@@ -10,6 +10,10 @@ const provider = new HDWalletProvider(
 );
 const web3 = new Web3(provider);
 
+
+console.log("ABI: ", JSON.parse(interface));
+console.log("bytecode: ", bytecode);
+
 const deploy = async () => {
   const accounts = await web3.eth.getAccounts();
 
@@ -22,4 +26,4 @@ const deploy = async () => {
 
   console.log('Contract deployed to', result.options.address);
 };
-deploy();
+// deploy();

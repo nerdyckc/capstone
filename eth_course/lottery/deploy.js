@@ -4,7 +4,7 @@ const { interface, bytecode } = require('./compile');
 
 const provider = new HDWalletProvider(
   'express clean uncover tumble strike account crush paddle whale cushion film pioneer',
-  'https://rinkeby.infura.io/v3/e090ab77bbe446e597ee121b94e2cc0'
+  'https://rinkeby.infura.io/v3/627c89ffadac4a77ab3db8df0da9cb8d'
 );
 const web3 = new Web3(provider);
 
@@ -14,9 +14,10 @@ const deploy = async () => {
   console.log('Attempting to deploy from account', accounts[0]);
 
   const result = await new web3.eth.Contract(JSON.parse(interface))
-    .deploy({ data: bytecode })
-    .send({ gas: '1000000', from: accounts[0] });
+    .deploy({ data: "0x" + bytecode })
+    .send({ gasLimit: '1000000', gasPrice: '1000000000', from: accounts[0] });
 
+  console.log(interface);
   console.log('Contract deployed to', result.options.address);
-}
+};
 deploy();
