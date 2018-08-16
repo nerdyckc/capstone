@@ -3,8 +3,9 @@ capstone project stuff
 
 npm init
 npm install --save solc
-npm install --save mocha ganache-cli web3@1.0.0-beta.26
+npm install --save mocha ganache-cli web3@1.0.0-beta.35
 npm install --save truffle-hdwallet-provider
+npm install --save fs-extra
 
 For react apps
 yarn add web3@1.0.0-beta.35
