@@ -8,6 +8,7 @@ npm install --save truffle-hdwallet-provider
 npm install --save fs-extra
 npm install --save next@4.1.4 react react-dom
 npm install --save semantic-ui-react
+npm install --save semantic-ui-css
 
 For react apps
 yarn add web3@1.0.0-beta.35
