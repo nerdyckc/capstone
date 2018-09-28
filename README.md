@@ -1,5 +1,5 @@
-# capstone
-capstone project stuff
+# udemy
+udemy stuff
 
 npm init
 npm install --save solc
