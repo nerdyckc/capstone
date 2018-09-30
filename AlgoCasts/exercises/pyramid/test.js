@@ -1,4 +1,4 @@
-const pyramid = require('./index');
+ const pyramid = require('./index');
 
 beforeEach(() => {
   jest.spyOn(console, 'log');
