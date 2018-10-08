@@ -14,8 +14,27 @@ class LinkedList {
     this.head = null;
   }
 
+  clear() {
+    this.head = null;
+  }
+
   insertFirst(data) {
     this.head = new Node(data, this.head);
+  }
+
+  getFirst() {
+    return this.head;
+  }
+
+  getLast() {
+    let currNode = this.head;
+
+    while(currNode) {
+      if (!currNode.next) {
+        return currNode;
+      }
+      currNode = currNode.next;
+    }
   }
 
   size() {
