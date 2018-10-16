@@ -18,6 +18,23 @@ class LinkedList {
     this.head = null;
   }
 
+  insertAt(data, index) {
+    if (!this.head) {
+      this.head = new Node(data);
+      return;
+    }
+    if (index === 0) {
+      this.head = new Node(data, this.head);
+      return;
+    }
+    let prevNode = this.getAt(index-1);
+    if (!prevNode || !prevNode.next) {
+      let last = this.getLast();
+      last.next = new Node(data);
+      return;
+    }
+    prevNode.next = new Node(data,prevNode.next);
+  }
   insertFirst(data) {
     this.head = new Node(data, this.head);
   }
@@ -53,6 +70,20 @@ class LinkedList {
       }
       currNode = currNode.next;
     }
+  }
+  removeAt(index) {
+    if (!this.head) {
+      return;
+    }
+    if (index === 0) {
+      this.head = this.head.next;
+      return;
+    }
+    let prevNode = this.getAt(index-1);
+    if (!prevNode || !prevNode.next) {
+      return;
+    }
+    prevNode.next = prevNode.next.next;
   }
   removeFirst() {
     if (!this.head) {
