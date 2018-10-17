@@ -17,7 +17,16 @@ class LinkedList {
   clear() {
     this.head = null;
   }
+  forEach(cb) {
+    let currNode = this.head;
+    let counter = 0;
 
+    while(currNode) {
+      cb(currNode);
+      currNode = currNode.next;
+      counter++;
+    }
+  }
   insertAt(data, index) {
     if (!this.head) {
       this.head = new Node(data);
@@ -119,6 +128,14 @@ class LinkedList {
       currNode = currNode.next;
     }
     return count;
+  }
+
+  *[Symbol.iterator]() {
+    let node = this.head;
+    while (node) {
+      yield node;
+      node = node.next;
+    }
   }
 }
 
