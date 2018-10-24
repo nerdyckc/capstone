@@ -42,6 +42,16 @@ class Tree {
       arr.push(...node.children);
     }
   }
+
+  traverseDF(fn) {
+    const arr = [this.root];
+
+    while(arr.length>0) {
+      let node = arr.shift();
+      fn(node);
+      arr.unshift(...node.children);
+    }
+  }
 }
 
 module.exports = { Tree, Node };
